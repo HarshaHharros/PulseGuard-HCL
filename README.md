@@ -48,6 +48,8 @@ To run this project locally:
 ![image](https://github.com/user-attachments/assets/5ebd693a-8dca-4f2e-9ca8-fb26fa6ee289)
 ![image](https://github.com/user-attachments/assets/0c8821e1-3269-498c-bd49-541263c97a4e)
 ![image](https://github.com/user-attachments/assets/06320dc1-2e6e-461d-84fe-033319eb6f25)
+![image](https://github.com/user-attachments/assets/9dafac2f-1f2f-4f01-9125-671830e12461)
+
 
 ## Development Setup
 
