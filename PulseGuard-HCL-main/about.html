@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Virtual Medical Assistant</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        /* Overall Page Styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .about-section {
+            padding: 4rem 0;
+            background-color: #fff;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .about-section h2 {
+            font-size: 2.5rem;
+            color:  hsl(167, 87%, 49%);
+            margin-bottom: 2.0rem;
+            font-weight: 600;
+        }
+
+        .about-section h3 {
+            font-size: 2rem; /* Increased font size for "Core Features" */
+            color: hsl(167, 87%, 49%); /* Updated color */
+            margin: 2rem 0 1rem; /* Added margin */
+            font-weight: 600;
+        }
+
+        .about-section p {
+            font-size: 1.6rem; /* Increased font size */
+            color: #555;
+            margin: 1rem 0;
+            max-width: 850px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .feature {
+            background-color: #f9fafb;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 1rem;
+            width: 32%; /* Increased width for larger boxes */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 300px; /* Fixed height for uniformity */
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature img {
+            width: 90%; /* Adjusted size for better visibility */
+            height: auto; /* Keep aspect ratio */
+            max-height: 120px; /* Set a max height */
+            object-fit: contain; /* Ensures the image fits without distortion */
+            margin-bottom: 1rem;
+        }
+
+        .feature h4 {
+            font-size: 1.5rem; /* Increased font size */
+            color: #0d6efd;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .feature p {
+            font-size: 1.1rem; /* Increased font size */
+            color: #666;
+            line-height: 1.5;
+            margin-top: auto; /* Pushes the content to the top */
+        }
+
+        /* Buttons */
+        .btn-group {
+            margin-top: 2.5rem;
+            display: flex;
+            justify-content: center; /* Centering buttons */
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            background-color: hsl(167, 87%, 49%);
+            margin: 0 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color:  hsl(167, 87%, 49%);
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .feature {
+                width: 80%;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .feature {
+                width: 45%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header bg-blue small-header"></header>
+    <nav class="navbar bg-blue">
+        <div class="container flex">
+            <a href="index.html" class="navbar-brand">
+                <img src="images/logo2.jpg" alt="site logo">
+            </a>
+            <button type="button" class="navbar-show-btn">
+                <img src="images/ham-menu-icon.png">
+            </button>
+            <div class="navbar-collapse bg-white">
+                <button type="button" class="navbar-hide-btn">
+                    <img src="images/close-icon.png">
+                </button>
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a href="prototype.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Service</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="about-section">
+            <h2>About Our Project</h2>
+            <p>
+                Welcome to <strong>Pulseguard</strong>, a cutting-edge virtual medical assistant platform designed to
+                revolutionize the way you manage healthcare. Our mission is to make healthcare more accessible, efficient,
+                and personalized by combining powerful technology with a user-friendly experience. Whether it's scheduling
+                an appointment or managing medications, we empower patients to take control of their health—anytime,
+                anywhere.
+            </p>
+
+            <h3>Core Features</h3>
+            <div class="features">
+                <div class="feature">
+                    <img src="images/appointment-icon.png" alt="Appointment Scheduling">
+                    <h4>Appointment Scheduling</h4>
+                    <p>Book appointments with doctors and specialists in just a few clicks, and get timely reminders.</p>
+                </div>
+                <div class="feature">
+                    <img src="images/medicine tracker.jpg" alt="Medicine Tracker">
+                    <h4>Medicine Tracker</h4>
+                    <p>Monitor your daily medications, set reminders, and never miss a dose again.</p>
+                </div>
+                <div class="feature">
+                    <img src="images/emergency.png" alt="Emergency Support">
+                    <h4>Emergency Support</h4>
+                    <p>Quick access to emergency services and nearby healthcare facilities based on your location.</p>
+                </div>
+            </div>
+
+            <div class="btn-group">
+                <a href="prototype.html" class="btn">Home</a>
+                <a href="contact.html" class="btn">Contact Us</a>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

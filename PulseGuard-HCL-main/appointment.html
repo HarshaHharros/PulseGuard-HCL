@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Scheduler</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <header class="header bg-blue small-header"></header>
+    <nav class="navbar bg-blue">
+        <div class="container flex">
+            <a href="prototype.html" class="navbar-brand">
+                <img src="images/logo2.jpg" alt="site logo">
+            </a>
+            <button type="button" class="navbar-show-btn">
+                <img src="images/ham-menu-icon.png">
+            </button>
+            <div class="navbar-collapse bg-white">
+                <button type="button" class="navbar-hide-btn">
+                    <img src="images/close-icon.png">
+                </button>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="prototype.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Service</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="blog.html" class="nav-link">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+                <div class="search-bar">
+                    <form>
+                        <div class="search-bar-box flex">
+                            <span class="search-icon flex">
+                                <img src="images/search-icon-dark.png">
+                            </span>
+                            <input type="search" class="search-control" placeholder="Search here">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Doctors Section -->
+        <section class="doctors-section py">
+            <div class="container">
+                <h2>Reputed Doctors</h2>
+                <p class="doctors-info">Meet our experienced team of doctors dedicated to providing you with the best care.</p> <!-- Added this line -->
+                <div class="doctor-row">
+                    <div class="doctor-card">
+                        <img src="images/doctor1.jpg" alt="Doctor 1">
+                        <h3>Dr. John Smith</h3>
+                        <p>Cardiologist - Delhi</p>
+                        <button class="btn btn-blue" onclick="bookAppointment('Dr. John Smith')">Book Appointment</button>
+                    </div>
+                    <div class="doctor-card">
+                        <img src="images/doctor2.jpg" alt="Doctor 2">
+                        <h3>Dr. Jane Doe</h3>
+                        <p>Pediatrician - Mumbai</p>
+                        <button class="btn btn-blue" onclick="bookAppointment('Dr. Jane Doe')">Book Appointment</button>
+                    </div>
+                    <div class="doctor-card">
+                        <img src="images/doctor3.jpg" alt="Doctor 3">
+                        <h3>Dr. Emily White</h3>
+                        <p>Neurologist - Chennai</p>
+                        <button class="btn btn-blue" onclick="bookAppointment('Dr. Emily White')">Book Appointment</button>
+                    </div>
+                </div>
+                <div class="doctor-row">
+                    <div class="doctor-card">
+                        <img src="images/doctor4.jpg" alt="Doctor 4">
+                        <h3>Dr. Michael Brown</h3>
+                        <p>Dermatologist - Chennai</p>
+                        <button class="btn btn-blue" onclick="bookAppointment('Dr. Michael Brown')">Book Appointment</button>
+                    </div>
+                    <div class="doctor-card">
+                        <img src="images/doctor5.jpg" alt="Doctor 5">
+                        <h3>Dr. Sarah Green</h3>
+                        <p>Orthopedic Surgeon - Delhi</p>
+                        <button class="btn btn-blue" onclick="bookAppointment('Dr. Sarah Green')">Book Appointment</button>
+                    </div>
+                    <div class="doctor-card">
+                        <img src="images/doctor6.jpg" alt="Doctor 6">
+                        <h3>Dr. David Black</h3>
+                        <p>General Practitioner - Vizag</p>
+                        <button class="btn btn-blue" onclick="bookAppointment('Dr. David Black')">Book Appointment</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Appointment Form Section -->
+        <section class="appointment-form-section py">
+            <div class="container text-center">
+                <h2>Schedule Your Appointment</h2>
+                <form id="appointmentForm" class="appointment-form">
+                    <div class="form-element">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-element">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-element">
+                        <label for="specialization">Specialization:</label>
+                        <select id="specialization" class="form-control" required>
+                            <option value="" disabled selected>Select specialization</option>
+                            <option value="Cardiologist">Cardiologist</option>
+                            <option value="ENT Specialist">ENT Specialist</option>
+                            <option value="Neurologist">Neurologist</option>
+                            <option value="Pulmonologist">Pulmonologist</option>
+                            <option value="Dermatologist">Dermatologist</option>
+                            <option value="Orthopedic Surgeon">Orthopedic Surgeon</option>
+                        </select>
+                    </div>
+                    <div class="form-element">
+                        <label for="location">Location:</label>
+                        <select id="location" class="form-control" required onchange="updateHospitals()">
+                            <option value="" disabled selected>Select location</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Mumbai">Mumbai</option>
+                            <option value="Chennai">Chennai</option>
+                            <option value="Bengaluru">Bengaluru</option>
+                            <option value="Hyderabad">Hyderabad</option>
+                            <option value="Kolkata">Kolkata</option>
+                            <option value="Pune">Pune</option>
+                            <option value="Ahmedabad">Ahmedabad</option>
+                            <option value="Jaipur">Jaipur</option>
+                        </select>
+                    </div>
+                    <div class="form-element">
+                        <label for="hospital">Hospital Name:</label>
+                        <select id="hospital" class="form-control" required>
+                            <option value="" disabled selected>Select hospital</option>
+                        </select>
+                    </div>
+                    <div class="form-element">
+                        <label for="date">Preferred Date:</label>
+                        <input type="date" id="date" class="form-control" required>
+                    </div>
+                    <div class="form-element">
+                        <label for="time">Preferred Time:</label>
+                        <input type="time" id="time" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-blue">Book Appointment</button>
+                </form>
+                <div id="booking-status" class="text text-lg py"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

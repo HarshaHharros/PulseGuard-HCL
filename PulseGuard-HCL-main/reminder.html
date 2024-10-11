@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medication Reminder Calendar</title>
+    <link rel="stylesheet" href="css/main.css"> <!-- Apply main.css for consistency -->
+    <style>
+        /* Additional Calendar and Reminder styling */
+        .calendar-container {
+            width: 70%;
+            padding: 20px;
+            background-color: var(--light-color);
+            margin-top: 10rem; /* Ensure it appears below the header */
+        }
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 20px;
+        }
+        .month {
+            border: 1px solid #ccc;
+            background-color: var(--light-color);
+            padding: 10px;
+            text-align: center;
+        }
+        .days-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            grid-gap: 10px;
+            margin-top: 10px;
+        }
+        .day {
+            width: 40px;
+            height: 40px;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+        }
+        .day:hover {
+            background-color: var(--light-blue-color);
+        }
+        .day.selected {
+            background-color: #ffeb99;
+        }
+        .day .tooltip {
+            display: none;
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 5px;
+            z-index: 10;
+            top: 50px;
+            left: 0;
+            width: 150px;
+            font-size: 12px;
+        }
+        .day:hover .tooltip {
+            display: block;
+        }
+        #reminder-panel {
+            width: 30%;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 10rem; /* Adjust as per the header */
+            right: 0;
+            height: calc(100vh - 10rem); /* Full height, below the header */
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+        input, button {
+            margin-top: 10px;
+            padding: 10px;
+            width: 100%;
+        }
+        .save-btn {
+            background-color: var(--fros-blue-color);
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .save-btn:hover {
+            background-color: var(--light-blue-color);
+        }
+    </style>
+</head>
+<body>
+
+<header class="header bg-blue small-header">
+    <nav class="navbar bg-blue">
+        <div class="container flex">
+            <a href="prototype.html" class="navbar-brand">
+                <img src="images/logo2.jpg" alt="site logo">
+            </a>
+            <button type="button" class="navbar-show-btn">
+                <img src="images/ham-menu-icon.png">
+            </button>
+            <div class="navbar-collapse bg-white">
+                <button type="button" class="navbar-hide-btn">
+                    <img src="images/close-icon.png">
+                </button>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="prototype.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Service</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="blog.html" class="nav-link">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="calendar-container">
+    <h1 class="text-center text-blue">Medication Reminder Calendar</h1>
+    <div class="calendar" id="calendar"></div>
+</div>
+
+<div id="reminder-panel">
+    <h2 class="reminder-title text-blue">Medication Details for <span id="selected-day"></span></h2>
+    <label for="medName">Medicine Name:</label>
+    <input type="text" id="medName" placeholder="Enter medicine name">
+    
+    <label for="medTime">Time:</label>
+    <input type="time" id="medTime">
+
+    <button class="save-btn" id="saveReminder">Save Reminder</button>
+</div>
+
+<script>
+    const months = [
+        'January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+
+    const calendarContainer = document.getElementById('calendar');
+    const reminderPanel = document.getElementById('reminder-panel');
+    const selectedDayText = document.getElementById('selected-day');
+
+    let selectedDay = null;
+    let reminders = {}; // Store reminders by day
+
+    // Generate calendar for two years
+    function generateCalendar() {
+        const currentYear = new Date().getFullYear();
+        for (let yearOffset = 0; yearOffset <= 1; yearOffset++) {
+            const year = currentYear + yearOffset;
+            months.forEach((month, index) => {
+                const monthElement = document.createElement('div');
+                monthElement.classList.add('month');
+                monthElement.innerHTML = `<strong>${month} ${year}</strong>`;
+
+                const daysGrid = document.createElement('div');
+                daysGrid.classList.add('days-grid');
+
+                // Get number of days in the current month
+                const daysInMonth = new Date(year, index + 1, 0).getDate();
+
+                for (let day = 1; day <= daysInMonth; day++) {
+                    const dayElement = document.createElement('div');
+                    dayElement.classList.add('day');
+                    dayElement.textContent = day;
+
+                    const tooltip = document.createElement('div');
+                    tooltip.classList.add('tooltip');
+                    tooltip.textContent = "No reminders";
+
+                    dayElement.appendChild(tooltip);
+                    dayElement.addEventListener('click', () => selectDay(dayElement, day, month, year));
+                    dayElement.addEventListener('mouseover', () => showReminders(day, month, year, tooltip));
+
+                    daysGrid.appendChild(dayElement);
+                }
+
+                monthElement.appendChild(daysGrid);
+                calendarContainer.appendChild(monthElement);
+            });
+        }
+    }
+
+    function selectDay(dayElement, day, month, year) {
+        if (selectedDay) {
+            selectedDay.classList.remove('selected');
+        }
+        selectedDay = dayElement;
+        dayElement.classList.add('selected');
+        
+        selectedDayText.textContent = `${day}-${month}-${year}`; // Fix: Make date key consistent
+        reminderPanel.style.display = 'flex';
+    }
+
+    function showReminders(day, month, year, tooltip) {
+        const key = `${day}-${month}-${year}`; // Fix: Make key format consistent for retrieval
+        if (reminders[key]) {
+            tooltip.textContent = reminders[key].map(reminder => `Medicine: ${reminder.name} at ${reminder.time}`).join('\n');
+        } else {
+            tooltip.textContent = "No reminders";
+        }
+    }
+
+    // Save medication reminder
+    const saveReminderBtn = document.getElementById('saveReminder');
+    saveReminderBtn.addEventListener('click', () => {
+        const medName = document.getElementById('medName').value;
+        const medTime = document.getElementById('medTime').value;
+        
+        const day = selectedDayText.textContent;
+        if (medName && medTime) {
+            const key = day;
+            if (!reminders[key]) {
+                reminders[key] = [];
+            }
+            reminders[key].push({ name: medName, time: medTime });
+
+            selectedDay.classList.add('has-reminder');
+            selectedDay.style.backgroundColor = '#ffeb99';  // Change color to indicate reminder set
+
+            // Immediately update the tooltip to show new reminder
+            const tooltip = selectedDay.querySelector('.tooltip');
+            tooltip.textContent = reminders[key].map(reminder => `Medicine: ${reminder.name} at ${reminder.time}`).join('\n');
+            
+            alert(`Reminder saved for ${day}:\nMedicine: ${medName}\nTime: ${medTime}`);
+            document.getElementById('medName').value = '';
+            document.getElementById('medTime').value = '';
+        } else {
+            alert('Please enter both medicine name and time.');
+        }
+    });
+
+    generateCalendar();
+</script>
+</body>
+</html>
+
+

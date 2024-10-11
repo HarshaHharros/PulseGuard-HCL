@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Pulseguard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css"> 
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eef2f5;
+        }
+
+        .header {
+            background-color: #1abc9c;;
+            padding: 10px 0; 
+            color: white;
+        }
+        .blog-container {
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 1200px; 
+        }
+
+        .blog-posts {
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: space-between; 
+        }
+        .blog-post {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px; 
+            width: calc(30% - 20px); 
+            position: relative; 
+            overflow: hidden; 
+        }
+
+        .blog-post img {
+            width: 100%; 
+            height: 200px; 
+            object-fit: cover; 
+            border-radius: 10px 10px 0 0; 
+            transition: transform 0.3s; 
+        }
+
+        .blog-post:hover img {
+            transform: scale(1.1); /* Zoom on hover */
+        }
+
+        .blog-post h2 {
+            margin: 10px 0; /* Space below title */
+            color: #2c3e50; 
+        }
+
+        .blog-post p {
+            color: #34495e; 
+            margin: 0; 
+        }
+
+        /* Sidebar */
+        .sidebar {
+            margin-top: 20px;
+        }
+
+        /* Search and Categories */
+        .search-bar {
+            margin-bottom: 20px;
+        }
+
+        .search-bar input {
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .category-list {
+            list-style: none; /* Remove bullets */
+            padding-left: 0; /* Remove padding */
+        }
+
+        .category-list li {
+            margin-bottom: 10px; /* Space between categories */
+        }
+
+        .category-list a {
+            text-decoration: none;
+            color: #3498db; /* Link color */
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <nav class="navbar">
+        <div class="container flex">
+            <a href="prototype.html" class="navbar-brand">
+                <img src="images/logo2.jpg" alt="site logo" height="40"> <!-- Logo size -->
+            </a>
+            <div class="navbar-collapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="prototype.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Service</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="blog.html" class="nav-link">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+                <div class="search-bar">
+                    <form>
+                        <div class="search-bar-box flex">
+                            <span class="search-icon flex">
+                                <img src="images/search-icon-dark.png" height="20"> <!-- Search icon size -->
+                            </span>
+                            <input type="search" class="search-control" placeholder="Search here">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <button type="button" class="navbar-show-btn">
+                <img src="images/ham-menu-icon.png" height="25"> 
+            </button>
+            <button type="button" class="navbar-hide-btn">
+                <img src="images/close-icon.png" height="25"> 
+            </button>
+        </div>
+    </nav>
+</header>
+
+<div class="blog-container">
+    <!-- Blog Post List -->
+    <div class="blog-posts">
+        <div class="blog-post">
+            <img src="https://cdn.pixabay.com/photo/2024/05/08/19/56/ai-generated-8749022_1280.jpg" alt="Understanding Medical Emergencies"> <!-- Image for the post -->
+            <h2><a href="https://www.springvalleyhospital.com/services/emergency-department/common-medical-emergencies" target="_blank">Understanding Medical Emergencies</a></h2> <!-- Link to article -->
+            <p>Published on October 1, 2024</p>
+            <p>Learn about the most common medical emergencies and how to respond effectively.</p>
+            <a href="https://www.springvalleyhospital.com/services/emergency-department/common-medical-emergencies" target="_blank">Read more...</a>
+        </div>
+        <div class="blog-post">
+            <img src="https://cdn.pixabay.com/photo/2024/07/08/16/28/ai-generated-8881542_1280.jpg" alt="First Aid Basics"> <!-- Image for the post -->
+            <h2><a href="https://www.healthdirect.gov.au/first-aid" target="_blank">First Aid Basics</a></h2> <!-- Link to article -->
+            <p>Published on September 15, 2024</p>
+            <p>This post covers the essential first aid skills everyone should know.</p>
+            <a href="https://www.healthdirect.gov.au/first-aid" target="_blank">Read more...</a>
+        </div>
+        <div class="blog-post">
+            <img src="https://media.istockphoto.com/id/484003828/vector/heart-checkup.jpg?s=2048x2048&w=is&k=20&c=v6OJGMSmzNmb20RR_dXaxOllBOpAtHoo64PAoipajz4=" alt="Preparing for Emergencies"> <!-- Image for the post -->
+            <h2><a href="https://www.ready.gov/plan" target="_blank">How to Prepare for Emergencies</a></h2> <!-- Link to article -->
+            <p>Published on August 30, 2024</p>
+            <p>Tips and checklists to help you prepare for various emergency situations.</p>
+            <a href="https://www.ready.gov/plan" target="_blank">Read more...</a>
+        </div>
+        <div class="blog-post">
+            <img src="https://cdn.pixabay.com/photo/2021/10/11/17/37/doctor-6701410_1280.jpg" alt="CPR Techniques"> <!-- Image for the post -->
+            <h2><a href="https://www.heart.org/en/cpr" target="_blank">CPR Techniques Everyone Should Know</a></h2> <!-- Link to article -->
+            <p>Published on July 20, 2024</p>
+            <p>Learn the essential CPR techniques that can save lives.</p>
+            <a href="https://www.heart.org/en/cpr" target="_blank">Read more...</a>
+        </div>
+        <div class="blog-post">
+            <img src="https://cdn.pixabay.com/photo/2024/03/26/11/57/doctor-8656663_1280.jpg" alt="Responding to Heart Attacks"> <!-- Image for the post -->
+            <h2><a href="https://www.mayoclinic.org/diseases-conditions/heart-attack/in-depth/heart-attack-prevention/art-20046317" target="_blank">Responding to Heart Attacks</a></h2> <!-- Link to article -->
+            <p>Published on June 15, 2024</p>
+            <p>Steps to take if someone is having a heart attack.</p>
+            <a href="https://www.mayoclinic.org/diseases-conditions/heart-attack/in-depth/heart-attack-prevention/art-20046317" target="_blank">Read more...</a>
+        </div>
+        <div class="blog-post">
+            <img src="https://cdn.pixabay.com/photo/2024/04/18/10/09/ai-generated-8703988_1280.jpg" alt="Dealing with Allergies"> <!-- Image for the post -->
+            <h2><a href="https://www.aaaai.org/allergies" target="_blank">Dealing with Allergies</a></h2> <!-- Link to article -->
+            <p>Published on May 1, 2024</p>
+            <p>Understanding allergies and how to manage them effectively.</p>
+            <a href="https://www.aaaai.org/allergies" target="_blank">Read more...</a>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="search-bar">
+            <input type="search" placeholder="Search blog posts...">
+        </div>
+        <h3>Categories</h3>
+        <ul class="category-list">
+            <li><a href="#">Health & Wellness</a></li>
+            <li><a href="#">Emergency Response</a></li>
+            <li><a href="#">First Aid</a></li>
+            <li><a href="#">Safety Tips</a></li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>

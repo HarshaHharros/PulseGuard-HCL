@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Case</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eef2f5;
+        }
+
+        .emergency-container {
+            padding: 20px;
+            margin-top: 10px;
+        }
+
+        /* Emergency Button */
+        #emergencyButton {
+            display: block;
+            margin: 20px auto;
+            padding: 15px 30px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            border-radius: 5px;
+        }
+
+        #emergencyButton:hover {
+            background-color: #c0392b;
+        }
+
+        .hospital-search, .emergency-contacts {
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .hospital-search input, .emergency-contacts input {
+            border-radius: 4px;
+            padding: 10px;
+            width: 75%;
+            border: 1px solid #ced4da;
+        }
+
+        .hospital-search button, .emergency-contacts button {
+            padding: 10px 20px;
+            background-color: hsl(167, 87%, 49%);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .hospital-search button:hover, .emergency-contacts button:hover {
+            background-color: #218838;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+        .emergency-container {
+            padding: 20px;
+            margin-top: 10px;
+        }
+
+        /* Three Tiles for Emergency Numbers */
+        .emergency-tiles {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 3rem;
+        }
+        .navbar-brand img, .navbar-show-btn img, .navbar-hide-btn img, .search-icon img {
+            max-width: 100%;  /* Fit images within their containers */
+            height: auto;     /* Maintain aspect ratio */
+            display: inline-block; /* Align properly with text */
+        }
+        
+
+        
+        /* Reduce the size of the header and navigation elements */
+        .header .navbar {
+            padding: 10px 0;  /* Add some vertical padding */
+        }
+        
+        .navbar-brand img {
+            width: 150px;  /* Set a reasonable size for the logo */
+            height: auto;  /* Maintain aspect ratio */
+        }
+        
+        .navbar-show-btn img, .navbar-hide-btn img {
+            width: 40px;  /* Set size for hamburger and close icons */
+            height: auto; /* Maintain aspect ratio */
+        }
+        
+        /* Ensure the header has the appropriate background color */
+        .header {
+            background-color: #009688; /* Use PulseGuard's green color */
+            padding: 20px 0; /* Add padding for spacing */
+        }
+        .tile {
+            background-color: #1abc9c;
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            width: 30%;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            min-height: 200px; /* Increased height */
+        }
+
+        /* Left and Right Containers below the tiles */
+        .emergency-main {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+        }
+        .carousel-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: black;
+            border-radius: 50%;
+        }
+        .emergency-heading {
+            text-align: center;
+            margin-bottom: 10px; 
+        }
+        
+        .emergency-container p {
+            text-align: center;
+            margin: 0 auto 30px auto;
+            width: 80%; 
+        }
+    </style>
+</head>
+<!-- header -->
+<header class="header bg-blue">
+    <nav class="navbar bg-blue">
+        <div class="container flex">
+            
+            <a href="prototype.html" class="navbar-brand">
+                <img src="images/logo2.jpg" alt="site logo">
+            </a>
+    </nav>
+</header>
+
+<!-- end of header -->
+
+<div>
+    <h1 class="emergency-heading">Emergency Case</h1>
+    <p style="text-align: center;">In India, emergencies strike without warning, and having the right helpline number at your fingertips can be a lifesaver.</p>
+
+    <!-- Three Tiles for Emergency Numbers -->
+    <div class="emergency-tiles">
+        <div class="tile">
+            <h3>Local Medical Emergency</h3>
+            <p><strong>108</strong> - Ambulance Service</p>
+            <p><strong>104</strong> - Health Helpline</p>
+            <p><strong>102</strong> - Emergency Medical Service</p>
+            <p><strong>112</strong> - National Emergency Number</p>
+        </div>
+        <div class="tile">
+            <h3>Disaster Management</h3>
+            <p><strong>112</strong> - National Emergency Help</p>
+            <p><strong>1033</strong> - Disaster Management Authority</p>
+            <p><strong>108</strong> - Fire and Rescue Services</p>
+            <p><strong>1911</strong> - Police & Fire Emergency in Delhi</p>
+        </div>
+        <div class="tile">
+            <h3>Police Emergency</h3>
+            <p><strong>100</strong> - Police Service</p>
+            <p><strong>101</strong> - Fire Brigade</p>
+            <p><strong>112</strong> - Women's Safety Helpline</p>
+            <p><strong>1091</strong> - Anti-Romeo Squad (specific to some states)</p>
+        </div>
+    </div>
+
+    <!-- Left and Right Containers below the tiles -->
+    <div class="hospital-search">
+        <h2>Find Nearest Hospitals</h2>
+        <p>Enter your location to find nearby hospitals and clinics.</p>
+        <input type="text" placeholder="Enter your city or area" id="user-location">
+        <button id="generate-btn">Generate Hospital List</button>
+
+        <ul id="hospital-list"></ul>
+    </div>
+    <!-- Emergency Contact Setup Section -->
+    <div class="emergency-contacts">
+        <h3>Setup Emergency Contacts</h3>
+        <p>Provide emergency contact details in case of serious medical emergencies.</p>
+        <input type="text" id="contactName" placeholder="Contact Name" required>
+        <input type="tel" id="contactPhone" placeholder="Phone Number" required>
+        <input type="email" id="contactEmail" placeholder="Email Address" required>
+        <button id="saveContact">Save Contact</button>
+
+        <h4>Saved Contacts:</h4>
+        <ul id="contactsList"></ul>
+    </div>
+
+    <!-- Emergency Button -->
+    <button id="emergencyButton">Emergency</button>
+</div>
+
+<!-- How to Tackle Emergencies Section -->
+<div class="emergency-info">
+    <h2>How to Tackle Medical Emergencies</h2>
+    <div id="emergencyCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="images/emergency1.jpg" alt="Emergency Step 1">
+                <div class="carousel-caption d-none d-md-block">
+                    <p>Stay calm and call for help immediately.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/emergency2.jpg" alt="Emergency Step 2">
+                <div class="carousel-caption d-none d-md-block">
+                    <p>Contact emergency services like ambulance or police.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/emergency3.jpg" alt="Emergency Step 3">
+                <div class="carousel-caption d-none d-md-block">
+                    <p>Provide clear information about the patient's condition.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/emergency4.jpg" alt="Emergency Step 4">
+                <div class="carousel-caption d-none d-md-block">
+                    <p>If possible, perform first aid (CPR, wound care).</p>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#emergencyCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#emergencyCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    // Simulated hospital data based on location input
+    const hospitals = {
+        'delhi': [
+            { name: 'AIIMS', phone: '+91 11 2658 8500' },
+            { name: 'Fortis Hospital', phone: '+91 11 4277 6222' },
+            { name: 'Max Super Specialty Hospital', phone: '+91 11 2651 5050' },
+            { name: 'Sir Ganga Ram Hospital', phone: '+91 11 2575 0000' },
+            { name: 'BLK Super Specialty Hospital', phone: '+91 11 3040 3040' }
+        ],
+        'mumbai': [
+            { name: 'Kokilaben Dhirubhai Ambani Hospital', phone: '+91 22 3099 9999' },
+            { name: 'Lilavati Hospital', phone: '+91 22 2675 1000' },
+            { name: 'Tata Memorial Hospital', phone: '+91 22 2417 7000' },
+            { name: 'Hiranandani Hospital', phone: '+91 22 7102 2222' },
+            { name: 'Breach Candy Hospital', phone: '+91 22 2366 7788' }
+        ],
+        'chennai': [
+            { name: 'Apollo Hospitals', phone: '+91 44 2829 3333' },
+            { name: 'Fortis Malar', phone: '+91 44 4289 2222' },
+            { name: 'MIOT Hospitals', phone: '+91 44 4200 2288' },
+            { name: 'Sri Ramachandra Medical Center', phone: '+91 44 4592 8500' },
+            { name: 'Vijaya Hospital', phone: '+91 44 2480 6016' }
+        ],
+        'bangalore': [
+            { name: 'Manipal Hospital', phone: '+91 80 2222 1111' },
+            { name: 'Columbia Asia', phone: '+91 80 3989 8969' },
+            { name: 'Sakra World Hospital', phone: '+91 80 4969 4969' },
+            { name: 'Narayana Health', phone: '+91 80 2783 5000' },
+            { name: 'Fortis Hospital', phone: '+91 80 6621 4444' }
+        ],
+        'hyderabad': [
+            { name: 'Yashoda Hospitals', phone: '+91 40 4567 4567' },
+            { name: 'Apollo Hospitals', phone: '+91 40 2360 7777' },
+            { name: 'KIMS Hospitals', phone: '+91 40 4488 5000' },
+            { name: 'Continental Hospitals', phone: '+91 40 6700 0000' },
+            { name: 'Care Hospitals', phone: '+91 40 6165 6565' }
+        ],
+        'kolkata': [
+            { name: 'AMRI Hospitals', phone: '+91 33 6680 0000' },
+            { name: 'Fortis Hospital', phone: '+91 33 6628 4444' },
+            { name: 'Apollo Gleneagles Hospital', phone: '+91 33 2320 3040' },
+            { name: 'Woodlands Multispeciality Hospital', phone: '+91 33 4033 4033' },
+            { name: 'Belle Vue Clinic', phone: '+91 33 2287 2321' }
+        ],
+        'pune': [
+            { name: 'Ruby Hall Clinic', phone: '+91 20 2616 3391' },
+            { name: 'Jehangir Hospital', phone: '+91 20 6681 6681' },
+            { name: 'Sahyadri Hospitals', phone: '+91 20 6721 4300' },
+            { name: 'Deenanath Mangeshkar Hospital', phone: '+91 20 4015 1000' },
+            { name: 'Aditya Birla Memorial Hospital', phone: '+91 20 3071 7500' }
+        ]
+    };
+
+    document.getElementById('generate-btn').addEventListener('click', () => {
+        const userLocation = document.getElementById('user-location').value.trim().toLowerCase();
+        const hospitalList = document.getElementById('hospital-list');
+        hospitalList.innerHTML = ''; // Clear previous results
+
+        if (hospitals[userLocation]) {
+            hospitals[userLocation].forEach(hospital => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${hospital.name} - Phone: ${hospital.phone}`;
+                hospitalList.appendChild(listItem);
+            });
+        } else {
+            const noResultsItem = document.createElement('li');
+            noResultsItem.textContent = 'No hospitals found for this location.';
+            hospitalList.appendChild(noResultsItem);
+        }
+    });
+
+    // Emergency Contact Management
+    let contacts = [];
+
+    document.getElementById('saveContact').addEventListener('click', () => {
+        const contactName = document.getElementById('contactName').value;
+        const contactPhone = document.getElementById('contactPhone').value;
+        const contactEmail = document.getElementById('contactEmail').value;
+
+        if (contactName && (contactPhone || contactEmail)) {
+            contacts.push({ name: contactName, phone: contactPhone, email: contactEmail });
+            updateContactsList();
+        } else {
+            alert('Please provide either a phone number or email for the contact.');
+        }
+
+        // Clear input fields
+        document.getElementById('contactName').value = '';
+        document.getElementById('contactPhone').value = '';
+        document.getElementById('contactEmail').value = '';
+    });
+
+    function updateContactsList() {
+        const contactsList = document.getElementById('contactsList');
+        contactsList.innerHTML = '';
+
+        contacts.forEach((contact, index) => {
+            contactsList.innerHTML += `<li>${contact.name} - ${contact.phone || 'No phone'} - ${contact.email || 'No email'}
+                                       <button onclick="deleteContact(${index})">Delete</button></li>`;
+        });
+    }
+
+    function deleteContact(index) {
+        contacts.splice(index, 1);
+        updateContactsList();
+    }
+
+    // Emergency Button Logic
+    document.getElementById('emergencyButton').addEventListener('click', () => {
+        if (contacts.length === 0) {
+            alert('No emergency contacts available. Please add contacts first.');
+            return;
+        }
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(sendEmergencyAlert, showError);
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+
+    function sendEmergencyAlert(position) {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        const locationUrl = `https://www.google.com/maps?q=${latitude},${longitude}`;
+
+        contacts.forEach(contact => {
+            if (contact.phone) {
+                sendSms(contact.phone, `Emergency! I need help. Here is my location: ${locationUrl}`);
+            }
+            if (contact.email) {
+                sendEmail(contact.email, `Emergency! I need help.`, `Here is my location: ${locationUrl}`);
+            }
+        });
+
+        alert('Emergency alerts have been sent to your contacts.');
+    }
+
+    function showError(error) {
+        alert(`Unable to retrieve location. Error: ${error.message}`);
+    }
+
+    function sendSms(phoneNumber, message) {
+        console.log(`SMS sent to ${phoneNumber}: ${message}`);
+    }
+
+    function sendEmail(email, subject, body) {
+        console.log(`Email sent to ${email}: Subject: ${subject}, Body: ${body}`);
+    }
+</script>
+
+</body>
+</html>
