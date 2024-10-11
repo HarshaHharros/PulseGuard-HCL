@@ -3,7 +3,7 @@
 PulseGuard is a virtual medical assistant web application designed to simplify healthcare management. It offers users a comprehensive suite of tools, including an appointment scheduler, a medicine tracker, an emergency case application, and a JavaScript-based chatbot for immediate assistance.
 
 Developer: Jonnalagadda Sri Harsha - Undergrad Data Science, SIST.
-
+# Note - Open `prototype.html` in your web browser, it is the Landing Page.
 ## Features
 
 - **Medicine Tracker**: A comprehensive solution to keep track of medication routines and maintain a history of medicines.
@@ -41,7 +41,7 @@ To run this project locally:
     cd PulseGuard
     ```
 
-3. Open `prototype.html` in your web browser to view the current progress.
+3. Open `prototype.html` in your web browser.(preferably Google Chrome)
    
 ## Sample Images
 ![image](https://github.com/user-attachments/assets/902dadaf-638e-4ec3-9dbe-8d8e75277806)
