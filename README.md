@@ -41,7 +41,13 @@ To run this project locally:
     cd PulseGuard
     ```
 
-3. Open `index.html` in your web browser to view the current progress.
+3. Open `prototype.html` in your web browser to view the current progress.
+   
+## Sample Images
+![image](https://github.com/user-attachments/assets/902dadaf-638e-4ec3-9dbe-8d8e75277806)
+![image](https://github.com/user-attachments/assets/5ebd693a-8dca-4f2e-9ca8-fb26fa6ee289)
+![image](https://github.com/user-attachments/assets/0c8821e1-3269-498c-bd49-541263c97a4e)
+![image](https://github.com/user-attachments/assets/06320dc1-2e6e-461d-84fe-033319eb6f25)
 
 ## Development Setup
 
